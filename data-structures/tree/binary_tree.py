@@ -59,12 +59,24 @@ def levelorder(root):
     queue = deque()
     queue.append(root)
     while len(queue) > 0:
-        element = queue.popleft()
-        print(element.value)
-        if element.left:
-            queue.append(element.left)
-        if element.right:
-            queue.append(element.right)
+        node = queue.popleft()
+        print(node.value)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+        pass
+
+
+def depthorder(root):
+    stack = [root]
+    while len(stack) > 0:
+        node = stack.pop()
+        print(node.value)
+        if node.right is not None:
+            stack.append(node.right)
+        if node.left is not None:
+            stack.append(node.left)
         pass
 
 
@@ -80,4 +92,5 @@ if __name__ == '__main__':
     # preorder(tree)
     # inorder(tree)
     # postorder(tree)
-    levelorder(tree)
+    # levelorder(tree)
+    depthorder(tree)
